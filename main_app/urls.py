@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('jewelry', views.jewelry.index, name='index'),
-  
+    path('jewelry/', views.jewelry_index, name='index'),
+    
     path('jewelry/<int:cat_id>/', views.jewelry_detail, name='detail'),
     # new route used to show a form and create jewelry
     

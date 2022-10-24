@@ -14,11 +14,11 @@ def about(request):
 
 def jewelry_index(request):
   jewelry = Jewelry.objects.all()
-  return render(request, 'jewelry/index.html', { 'jewelry': jewelry })
+  return render(request, 'jewelry/index.html', { 'Jewelry': Jewelry })
 
 def jewelry_detail(request, jewelry_id):
   jewelry = Jewelry.objects.get(id=jewelry_id)
-  beads_jewelry_doesnt_have = Bead.objects.exclude(id__in = jewelry.beads.all().values_list('id'))
+  beads_jewelry_doesnt_have = Bead.objects.exclude(id__in = Jewelry.beads.all().values_list('id'))
   return render(request, 'jewelry/detail.html')
 
 def assoc_bead(request, jewelry_id, bead_id):
@@ -33,7 +33,7 @@ class JewelryCreate(CreateView):
 class JewelryUpdate(UpdateView):
   model = Jewelry
   # Let's disallow the renaming of the cat
-  fields = ['Name', 'description', 'function']
+  fields = ['name', 'description', 'function']
 
 class JewelryDelete(DeleteView):
   model = Jewelry
@@ -58,3 +58,4 @@ class BeadDetail(DetailView):
 class BeadList(ListView):
     model = Bead
     template_name = 'beads/index.html'
+    
