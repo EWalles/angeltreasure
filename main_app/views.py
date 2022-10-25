@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Jewelry, Bead
-from .forms import CustomerForm
+
 
 def home(request):
     return render(request,'home.html')
@@ -49,7 +49,7 @@ class BeadUpdate(UpdateView):
 
 class BeadDelete(DeleteView):
     model = Bead
-    success_url = '/toys/'
+    success_url = '/beads/'
 
 class BeadDetail(DetailView):
     model = Bead

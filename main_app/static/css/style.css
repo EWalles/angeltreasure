@@ -1,4 +1,9 @@
 
+header {
+  background-color: aliceblue;
+  display: flex;
+  min-height: 30vh;
+}
 body {
     background-color: rgb(133, 135, 247);
     display: flex;
