@@ -39,23 +39,4 @@ class JewelryDelete(DeleteView):
   model = Jewelry
   success_url = '/jewelry'
 
-class BeadCreate(CreateView):
-    model = Bead
-    fields = ('name', 'color')
 
-class BeadUpdate(UpdateView):
-    model = Bead
-    fields = ('name', 'color')
-
-class BeadDelete(DeleteView):
-    model = Bead
-    success_url = '/beads/'
-
-class BeadDetail(DetailView):
-    model = Bead
-    template_name = 'beads/detail.html'
-
-class BeadList(ListView):
-    model = Bead
-    template_name = 'beads/index.html'
-    
