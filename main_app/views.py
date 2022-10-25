@@ -14,17 +14,14 @@ def about(request):
 
 def jewelry_index(request):
   jewelry = Jewelry.objects.all()
-  return render(request, 'jewelry/index.html', { 'Jewelry': Jewelry })
+  return render(request, 'jewelry/index.html', { 'jewelry': jewelry })
 
 def jewelry_detail(request, jewelry_id):
   jewelry = Jewelry.objects.get(id=jewelry_id)
   beads_jewelry_doesnt_have = Bead.objects.exclude(id__in = Jewelry.beads.all().values_list('id'))
   return render(request, 'jewelry/detail.html')
 
-def assoc_bead(request, jewelry_id, bead_id):
-  # Note that you can pass a toy's id instead of the whole object
-   Jewelry.objects.get(id=jewelry_id).bead.add(bead_id)
-   return redirect('detail', jewelry_id=jewelry_id)
+
 
 class JewelryCreate(CreateView):
   model = Jewelry
