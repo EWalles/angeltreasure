@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from main_app.models import Jewelry, Bead
+from main_app.models import Jewelry
 
 
 def home(request):
@@ -18,7 +18,6 @@ def jewelry_index(request):
 
 def jewelry_detail(request, jewelry_id):
   jewelry = Jewelry.objects.get(id=jewelry_id)
-  beads_jewelry_doesnt_have = Bead.objects.exclude(id__in = Jewelry.beads.all().values_list('id'))
   return render(request, 'jewelry/detail.html')
 
 

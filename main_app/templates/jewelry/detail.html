@@ -13,8 +13,8 @@
                 <p>bead: {{jewelry.bead}}
             </div>
     	<div class="card-action">
-			<a href="{% url 'jewelry_update' cat.id %}">Edit</a>
-			<a href="{% url 'jewelry_delete' cat.id %}">Delete</a>
+			<a href="{% url 'jewelry_update' jewelry.id %}">Edit</a>
+			<a href="{% url 'jewelry_delete' jewelry.id %}">Delete</a>
 		</div>
 	</div>
 </div>
